@@ -1,0 +1,53 @@
+filters:
+  # fw1-asa outside
+  - header:
+      targets:
+        ciscoasa: acl-outside
+    terms:
+      - name: client-to-web-https
+        source-address: WEB_NET
+        destination-port: HTTPS
+        protocol: tcp
+        action: accept
+      - name: deny-all
+        action: deny
+  # fw1-asa dmz
+  - header:
+      targets:
+        ciscoasa: acl-dmz
+    terms:
+      - name: web-to-db-mysql
+        source-address: WEB_NET
+        destination-address: DB_NET
+        destination-port: MYSQL
+        protocol: tcp
+        action: accept
+      - name: web-to-infra-svcs
+        source-address: WEB_NET
+        destination-address: INFRA_SERVICE_NETS
+        destination-port:
+          - DNS
+          - NTP
+        protocol: udp
+        action: accept
+      - name: deny-all
+        action: deny
+  # fw1-asa inside
+  - header:
+      targets:
+        ciscoasa: acl-inside
+    terms:
+      - name: db-to-dns
+        source-address: DB_NET
+        destination-address: DNS_NET
+        destination-port: DNS
+        protocol: udp
+        action: accept
+      - name: db-to-ntp
+        source-address: DB_NET
+        destination-address: NTP_NET
+        destination-port: NTP
+        protocol: udp
+        action: accept
+      - name: deny-all
+        action: deny

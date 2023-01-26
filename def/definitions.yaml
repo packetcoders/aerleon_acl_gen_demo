@@ -1,0 +1,30 @@
+networks:
+  WEB_NET:
+    values:
+      - address: "10.1.1.1/32"
+  DB_NET:
+    values:
+      - address: "172.16.1.1/32"
+  NTP_NET:
+    values:
+      - address: "100.1.1.1/30"
+  DNS_NET:
+    values:
+      - address: "100.1.2.1/30"
+  INFRA_SERVICE_NETS:
+    values:
+      - "DNS_NET"
+      - "NTP_NET"
+services:
+  MYSQL:
+    - protocol: "tcp"
+      port: "3306"
+  HTTPS:
+    - protocol: "tcp"
+      port: "443"
+  DNS:
+    - protocol: "udp"
+      port: "53"
+  NTP:
+    - protocol: udp
+      port: "123"

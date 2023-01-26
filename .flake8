@@ -1,0 +1,9 @@
+[flake8]
+# E501: Line length, already enforced by Black.
+# E261: two spaces between comments, already enforced by Black.
+# E402: ignore import postion as these are just demo scripts.
+ignore = E501, E261, E402
+exclude =
+    venv,
+    .venv,
+    tests

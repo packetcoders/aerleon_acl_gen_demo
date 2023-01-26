@@ -1,0 +1,33 @@
+filters:
+  # fw2-srx outside
+  - header:
+      targets:
+        srx: from-zone outside to-zone inside-inet
+    terms:
+      - name: web-to-db-mysql
+        source-address: WEB_NET
+        destination-address: DB_NET
+        destination-port: MYSQL
+        protocol: tcp
+        action: accept
+      - name: deny-all
+        action: deny
+  # fw2-srx inside
+  - header:
+      targets:
+        srx: from-zone inside to-zone outside-inet
+    terms:
+      - name: db-to-dns
+        source-address: DB_NET
+        destination-address: DNS_NET
+        destination-port: DNS
+        protocol: udp
+        action: accept
+      - name: db-to-ntp
+        source-address: DB_NET
+        destination-address: NTP_NET
+        destination-port: NTP
+        protocol: udp
+        action: accept
+      - name: deny-all
+        action: deny
