@@ -8,8 +8,12 @@ This repo contains some short examples of how to generate ACLs using Aerleon, us
 ## Usage
 
 ```
-# Install Aerleon
-poetry add aerleon # or pip insdtall aerleon
+# Clone repo
+git clone git@github.com:packetcoders/aerleon_acl_gen_demo.git
+cd aerleon_acl_gen_demo
+
+# Install dependancies from repo
+poetry install
 
 # Generate ACLs using the CLI
 $ aclgen
