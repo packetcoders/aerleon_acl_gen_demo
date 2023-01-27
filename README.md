@@ -1,4 +1,4 @@
-## Aerlon ACL Generation Example
+## Aerleon ACL Generation Example
 This repo contains some short examples of how to generate ACLs using Aerleon, using both the CLI and Python API.
 
 > **Note**
