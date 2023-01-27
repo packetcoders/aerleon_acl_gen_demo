@@ -2,7 +2,7 @@
 This repo contains some short examples of how to generate ACLs using Aerleon, using both the CLI and Python API.
 
 > **Note**
-> The blog post that accompanies this repo can be found here.
+> The blog post that accompanies this repo can be found [here](https://www.packetcoders.io/automating-firewall-acls-with-aerleon/).
 
 
 ## Usage
